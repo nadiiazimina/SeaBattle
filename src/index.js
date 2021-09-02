@@ -1,25 +1,27 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Battleship</title>
-    <style>
-      body {
-        background-color: black;
-      }
-      div#board {
-        position: relative;
-        width: 1024px;
-        height: 863px;
-        margin: auto;
-        background: url("board.jpg") no-repeat;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="board">
-      
-    </div>
-    <script src="battleship.js"></script>
-   </body>
-  </html>
+var view = {
+  displayMessage: function(msg) {
+    var messageArea = 
+    document.getElementById("messageArea");
+    messageArea.innerHTML = msg;
+  }
+
+  displayHit:function(location) {
+    var cell = document.getElementById(location);
+    cell.setAttribute("class", "hit");
+  }
+
+  displayMiss: function(location {
+    var cell = document.getElementById(location);
+    cell.setAttribute("class", "miss");
+  }
+
+};
+
+view.displayMiss("00");
+view.displayHit("34");
+view.displayMiss("55");
+view.displayHit("12");
+view.displayMiss("25");
+view.displayHit("26");
+
+view.displayMessage("Tap tap, is this thing on?");
