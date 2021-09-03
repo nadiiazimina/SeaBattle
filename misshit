@@ -32,6 +32,24 @@ return false;
   },
 
   isSunk: function(ship) {
-    for (var i = 0; )
-  }
+    for (var i = 0; i < this.shipLength; i++) {
+      if (ship.hits [i] !== "hit") {
+        return false;
+      } 
+    }
+    return true;
+  },
+   generateShipLocations: function() {
+     var locations;
+     for (var i = 0; i < this.numShips; i++) {
+       do {
+         locations = this.generateShip();
+       } while (this.collision(locations));
+       this.ships[i].locations = locations;
+     }
+     console.log("Ships array: ");
+     console.log(this.ships);
+   },
+
+   
 }
