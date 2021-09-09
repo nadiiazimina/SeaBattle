@@ -60,7 +60,9 @@ return false;
       col = Math.floor(Math.random() * (this.boardSize - this.shipLength +1));
     } else {//vertical
             row= Math.floor(Math.random() * (this.boardSize - this.shipLength + 1));
+            col = Math.floor(Math.random()* this.boardSize);
             }
+            
 
 
      
