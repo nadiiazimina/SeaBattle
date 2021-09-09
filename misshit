@@ -58,7 +58,10 @@ return false;
      if direction ===1) { // horizontal
       row = Math.floor(Math.random() * this.boardSize);
       col = Math.floor(Math.random() * (this.boardSize - this.shipLength +1));
-     }
+    } else {//vertical
+            row= Math.floor(Math.random() * (this.boardSize - this.shipLength + 1));
+            }
+
 
      
    }
