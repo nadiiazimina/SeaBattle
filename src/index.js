@@ -34,5 +34,15 @@ var model = {
     { location: ["06", "16", "26"], hits: ["", "", ""] },
     { location: ["24", "34", "44"], hits: ["", "", ""] },
     { location: ["10", "11", "12"], hits: ["", "", ""] }
-  ]
+  ],
+  fire: function (guess) {
+    for (var i = 0; i < this.numShips; i++) {
+      var ship = this.ship[i];
+      var index = ship.locations.indexOf(guess);
+
+      if (index >= 0) {
+        ship.hits[index] = "hit";
+      }
+    }
+  }
 };
