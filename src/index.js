@@ -42,7 +42,26 @@ var model = {
 
       if (index >= 0) {
         ship.hits[index] = "hit";
+        view.displayHit(guess);
+        view.displayMessage("HIT!");
+
+        if (this.shipSunk(ship)) {
+          view.displayMessage("You sank my battleship!");
+          this.shipSunk++;
+        }
+        return true;
       }
     }
+    view.displayMiss(guess);
+    view.displayMessage("You missed.");
+    return false;
+  },
+  isSunk: function (ship) {
+    for (var i = 0; i < this.shipLength; i++) {
+      if (ship.hits[i] !== "hit") {
+        return false;
+      }
+    }
+    return true;
   }
 };
