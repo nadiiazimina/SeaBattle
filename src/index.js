@@ -88,8 +88,11 @@ var controler = {
           column >= model.boardSize
         ) {
           alter("Oops, that's off the board!");
+        } else {
+          return row + column;
         }
       }
+      return null;
     }
   }
 };
