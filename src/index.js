@@ -78,6 +78,17 @@ var controler = {
       } else {
         var row = alphabet.indexOf(guess.charAt(0));
         var column = guess.charAt(1);
+
+        if (isNaN(row) || isNaN(column)) {
+          alter("Oops, that isn't on the board.");
+        } else if (
+          row < 0 ||
+          row >= model.boardSize ||
+          column < 0 ||
+          column >= model.boardSize
+        ) {
+          alter("Oops, that's off the board!");
+        }
       }
     }
   }
