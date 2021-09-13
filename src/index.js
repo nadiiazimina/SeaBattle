@@ -65,3 +65,20 @@ var model = {
     return true;
   }
 };
+
+var controler = {
+  guesses: 0,
+
+  processGuess: function (guess) {
+    function parseGuess(guess) {
+      var alphabet = ["A", "B", "C", "D", "E", "F", "G"];
+
+      if (guess === null || guess.length !== 2) {
+        alert("Oops, please enter a letter and a number on the board.");
+      } else {
+        var row = alphabet.indexOf(guess.charAt(0));
+        var column = guess.charAt(1);
+      }
+    }
+  }
+};
