@@ -107,3 +107,18 @@ var controller = {
     }
   }
 };
+
+function init() {
+  //fire button//
+  var fireButton = document.getElementById("fireButton");
+  fireButton.onclick = handleFireButton;
+
+  function handleFireButton() {
+    var guessInput = document.getElementById("guessInput");
+    var guess = guessInput.value;
+    controller.processGuess(guess);
+
+    guessInput.value = "";
+  }
+  window.onload = init;
+}
