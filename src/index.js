@@ -99,6 +99,11 @@ var controller = {
     if (location) {
       this.guesses++;
       var hit = model.fire(location);
+      if (hit && model.shipSunk === model.numShips) {
+        view.displayMessage(
+          "You sank all my battleships, in " + this.guesses + " guesses"
+        );
+      }
     }
   }
 };
