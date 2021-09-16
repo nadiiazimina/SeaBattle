@@ -74,6 +74,21 @@ var model = {
     }
     console.log("Ships array: ");
     console.log(this.ships);
+  },
+
+  generateShip: function () {
+    var direction = Math.floor(Math.random() * 2);
+    var row, col;
+
+    if (direction === 1) {
+      //horizontal
+      row = Math.floor(Math.random() * this.boardSize);
+      col = Math.floor(Math.random() * (this.boardSize - this.shipLength + 1));
+    } else {
+      //vertical
+      row = Math.floor(Math.random() * (this.boardSize - this.shipLength + 1));
+      col = Math.floor(Math.random() * this.boardSize);
+    }
   }
 };
 
