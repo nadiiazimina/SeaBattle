@@ -89,6 +89,15 @@ var model = {
       row = Math.floor(Math.random() * (this.boardSize - this.shipLength + 1));
       col = Math.floor(Math.random() * this.boardSize);
     }
+    var newShipLocations = [];
+    for (var i = 0; i < this.shipLength; i++) {
+      if (direction === 1) {
+        newShipLocations.push(row + "" + (col + 1));
+      } else {
+        newShipLocations.push(row + 1 + "" + col);
+      }
+    }
+    return newShipLocations;
   }
 };
 
