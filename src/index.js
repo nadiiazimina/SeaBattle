@@ -15,12 +15,12 @@ var view = {
   }
 };
 
-view.displayMiss("00");
+/*view.displayMiss("00");
 view.displayHit("34");
 view.displayMiss("55");
 view.displayHit("12");
 view.displayMiss("25");
-view.displayHit("26");
+view.displayHit("26");*/
 
 view.displayMessage("Tap tap, is this thing on?");
 
@@ -63,6 +63,17 @@ var model = {
       }
     }
     return true;
+  },
+  generateShipLocations: function () {
+    var locations;
+    for (var i = 0; i < this.numShips; i++) {
+      do {
+        locations = this.generateShip();
+      } while (this.collision(locations));
+      this.ships[i].locations = locations;
+    }
+    console.log("Ships array: ");
+    console.log(this.ships);
   }
 };
 
