@@ -98,6 +98,17 @@ var model = {
       }
     }
     return newShipLocations;
+  },
+  collision: function (location) {
+    for (var i = 0; i < this.numShips; i++) {
+      var ship = this.ships[i];
+      for (var j = 0; j < locations.length; j++) {
+        if (ship.locations.indexOf(locations[1]) >= 0) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 };
 
@@ -144,16 +155,24 @@ var controller = {
 };
 
 function init() {
-  //fire button//
   var fireButton = document.getElementById("fireButton");
   fireButton.onclick = handleFireButton;
-
-  function handleFireButton() {
-    var guessInput = document.getElementById("guessInput");
-    var guess = guessInput.value;
-    controller.processGuess(guess);
-
-    guessInput.value = "";
-  }
-  window.onload = init;
+  var guessInput = document.getElementById("guessInput");
+  guessInput.onkeypress = handleKeyPress;
 }
+function handleKeyPress(e) {
+  var fireButton = document.getElementById("fireButton");
+  if (e.keyCode === 13) {
+    fireButton.click();
+    return false;
+  }
+}
+
+function handleFireButton() {
+  var guessInput = document.getElementById("guessInput");
+  var guess = guessInput.value;
+  controller.processGuess(guess);
+
+  guessInput = " ";
+}
+window.onload = init;
