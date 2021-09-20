@@ -99,7 +99,7 @@ var model = {
     }
     return newShipLocations;
   },
-  collision: function (location) {
+  collision: function (locations) {
     for (var i = 0; i < this.numShips; i++) {
       var ship = this.ships[i];
       for (var j = 0; j < locations.length; j++) {
@@ -177,3 +177,4 @@ function handleFireButton() {
   guessInput = " ";
 }
 window.onload = init;
+
